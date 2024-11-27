@@ -65,14 +65,14 @@ If the default behavior is not desired and you want to import the complete works
 
 ```text
 
-----------------------------------------------
+#----------------------------------------------
 | File: Movies.xlsx     -      Sheet: Actors |
-----------------------------------------------
+#----------------------------------------------
 |           A           B            C       |
 |1     First Name                 Address    |
 |2     Chuck         Norris       California |
 |3     Jean-Claude   Vandamme     Brussels   |
-----------------------------------------------
+#----------------------------------------------
 
 PS C:> Import-Excel -Path 'C:\Movies.xlsx' -WorkSheetname Actors
 
@@ -91,14 +91,14 @@ Notice that column 'B' is not imported because there's no value in cell 'B1' tha
 
 ```text
 
-----------------------------------------------
+#----------------------------------------------
 | File: Movies.xlsx     -      Sheet: Actors |
-----------------------------------------------
+#----------------------------------------------
 |           A           B            C       |
 |1     First Name                 Address    |
 |2     Chuck         Norris       California |
 |3     Jean-Claude   Vandamme     Brussels   |
-----------------------------------------------
+#----------------------------------------------
 
 PS\> Import-Excel -Path 'C:\Movies.xlsx' -WorkSheetname Actors -NoHeader
 
@@ -123,15 +123,15 @@ Notice that the column header \(row 1\) is imported as an object too.
 
 ```text
 
-----------------------------------------------------------
+#----------------------------------------------------------
 | File: Movies.xlsx            -           Sheet: Movies |
-----------------------------------------------------------
+#----------------------------------------------------------
 |           A            B            C          D       |
 |1     The Bodyguard   1992           9                  |
 |2     The Matrix      1999           8                  |
 |3                                                       |
 |4     Skyfall         2012           9                  |
-----------------------------------------------------------
+#----------------------------------------------------------
 
 PS\> Import-Excel -Path 'C:\Movies.xlsx' -WorkSheetname Movies -HeaderName 'Movie name', 'Year', 'Rating', 'Genre'
 
@@ -164,15 +164,15 @@ Notice that empty rows are imported and that data for the property 'Genre' is no
 
 ```text
 
-----------------------------------------------------------
+#----------------------------------------------------------
 | File: Movies.xlsx            -           Sheet: Movies |
-----------------------------------------------------------
+#----------------------------------------------------------
 |           A            B            C          D       |
 |1     The Bodyguard   1992           9                  |
 |2     The Matrix      1999           8                  |
 |3                                                       |
 |4     Skyfall         2012           9                  |
-----------------------------------------------------------
+#----------------------------------------------------------
 
 PS\> Import-Excel -Path 'C:\Movies.xlsx' -WorkSheetname Movies -NoHeader -DataOnly
 
@@ -197,14 +197,14 @@ Notice that empty rows and empty columns are not imported.
 
 ```text
 
-----------------------------------------------------------
+#----------------------------------------------------------
 | File: Movies.xlsx            -           Sheet: Actors |
-----------------------------------------------------------
+#----------------------------------------------------------
 |           A           B           C            D       |
 |1     Chuck                     Norris       California |
 |2                                                       |
 |3     Jean-Claude               Vandamme     Brussels   |
-----------------------------------------------------------
+#----------------------------------------------------------
 
 PS\> Import-Excel -Path 'C:\Movies.xlsx' -WorkSheetname Actors -DataOnly -HeaderName 'FirstName', 'SecondName', 'City' -StartRow 2
 
@@ -386,6 +386,17 @@ Position: Named
 Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
+```
+
+### -ImportColumns
+Import only specific columns by column number. 
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+
+Required: False
+Position: Named
 ```
 
 ### -DataOnly
